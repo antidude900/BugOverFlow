@@ -7,7 +7,7 @@ const hotQuestions = [
 	{
 		_id: 1,
 		title:
-			"Bst practices for data fetching in a Next.js application with Server-Side Rendering (SSR)? to create a custom hook in React?",
+			"Best practices for data fetching in a Next.js application with Server-Side Rendering (SSR)? to create a custom hook in React?",
 	},
 	{
 		_id: 2,
