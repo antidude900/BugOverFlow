@@ -43,7 +43,6 @@ const LeftSideBar = () => {
 							>
 								{item.label}
 							</p>
-
 						</Link>
 					);
 				})}

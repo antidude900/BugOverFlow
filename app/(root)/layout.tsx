@@ -1,6 +1,7 @@
 import Navbar from "@/components/shared/navbar/Navbar";
 import LeftSideBar from "@/components/shared/LeftSideBar";
 import React from "react";
+import RightSideBar from "@/components/shared/RightSideBar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
@@ -11,7 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 				<section className="flex min-h-screen flex-1 flex-col p-6 max-md:pb-14 sm:px-14">
 					<div className="mx-auto w-full max-w-5xl">{children}</div>
 				</section>
-				{/* RightSidebar */}
+				<RightSideBar/>
 			</div>
 			{/* Toaster */}
 		</main>
