@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SignedIn, UserButton } from "@clerk/nextjs";
-import Theme from "./Theme";
+import Theme from "../Theme";
 import MobileNav from "./MobileNav";
 import GlobalSearch from "../search/GlobalSearch";
 
@@ -13,13 +13,13 @@ const Navbar = () => {
 					src="/assets/images/site-logo.svg"
 					width={23}
 					height={23}
-					alt="devflow"
+					alt="StackOverflow"
 				/>
 				<p className="h2-bold text-dark100_light900 font-spaceGrotesk max-sm:hidden">
-					Dev <span className="text-primary-500 ">OverFlow</span>
+					Stack <span className="text-primary-500 ">OverFlow</span>
 				</p>
 			</Link>
-			<GlobalSearch/>
+			<GlobalSearch />
 			<div className="flex-between gap-5">
 				<Theme />
 				<SignedIn>
