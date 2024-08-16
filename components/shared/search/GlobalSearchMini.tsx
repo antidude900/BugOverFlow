@@ -8,17 +8,22 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { useState } from "react"; // added
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
-const GlobalSearch = () => {
-	const [input, setInput] = useState(""); // added
-	const [screenSize, setScreenSize] = useState(0);
-	window.addEventListener("resize", () => {
-		setScreenSize(window.innerWidth);
-	});
+const GlobalMiniSearch = () => {
+	const [input, setInput] = useState("");
+	const isLargeScreen = useMediaQuery({ query: "(min-width: 1130px)" });
+	const [isClient, setIsClient] = useState(false);
+
+	// Set isClient to true once the component has mounted
+	useEffect(() => {
+		setIsClient(true);
+	}, []);
+	if (!isClient) return null;
 
 	return (
-		<div className={`${screenSize > 1130 ? "hidden" : ""} px-[25px] pt-1.5`}>
+		<div className={`${isLargeScreen ? "hidden" : ""} px-[25px] pt-1.5`}>
 			<Popover>
 				<PopoverTrigger>
 					<Image
@@ -34,9 +39,9 @@ const GlobalSearch = () => {
 						<Input
 							type="text"
 							placeholder="Search Globally"
-							value={input} // added
+							value={input}
 							className="paragraph-regular no-focus placeholder text-dark400_light700 border-none bg-transparent shadow-none outline-none"
-							onChange={(e) => setInput(e.target.value)} // added
+							onChange={(e) => setInput(e.target.value)}
 						/>
 					</div>
 				</PopoverContent>
@@ -45,4 +50,4 @@ const GlobalSearch = () => {
 	);
 };
 
-export default GlobalSearch;
+export default GlobalMiniSearch;

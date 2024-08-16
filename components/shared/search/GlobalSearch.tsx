@@ -2,18 +2,22 @@
 
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
-import { useState } from "react"; // added
+import { useEffect, useState } from "react"; // added
+import { useMediaQuery } from "react-responsive";
 
 const GlobalSearch = () => {
-	const [input, setInput] = useState(""); // added
-	const [screenSize, setScreenSize] = useState(0);
-	window.addEventListener("resize", () => {
-		setScreenSize(window.innerWidth);
-	});
+	const [input, setInput] = useState("");
+	const [isClient, setIsClient] = useState(false);
+	const isLargeScreen = useMediaQuery({ query: "(min-width: 1130px)" });
+
+	useEffect(() => {
+		setIsClient(true);
+	}, []);
+	if (!isClient) return null;
 
 	return (
 		<div
-			className={`relative w-full max-w-[600px] ${screenSize < 1130 ? "hidden" : ""}`}
+			className={`relative w-full max-w-[600px] ${!isLargeScreen ? "hidden" : ""}`}
 		>
 			<div className="background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-1 rounded-xl px-4">
 				<Image
