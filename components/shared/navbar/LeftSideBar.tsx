@@ -18,7 +18,7 @@ const LeftSideBar = () => {
 			<section
 				onMouseEnter={() => setIsExpanded(true)}
 				onMouseLeave={() => setIsExpanded(false)}
-				className={`background-light900_dark200 light-border custom-scrollbar ${!isExpanded && "sticky"} left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden  ${isExpanded && "fixed lg:w-[266px]"} z-40 transition-all duration-300`}
+				className={`background-light900_dark200 light-border custom-scrollbar ${!isExpanded && "sticky"} left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden  ${isExpanded && "fixed lg:w-[266px]"} z-40`}
 			>
 				<div className="flex flex-1 flex-col gap-6">
 					{sidebarLinks.map((item) => {
