@@ -33,7 +33,7 @@ const NavContent = () => {
 								isActive
 									? "primary-gradient rounded-lg text-light-900"
 									: "text-dark300_light900"
-							} flex items-center justify-start gap-4 bg-transparent p-4`}
+							} flex items-center justify-start gap-4 rounded-lg bg-transparent p-4 hover:bg-slate-100 hover:dark:bg-dark-400`}
 						>
 							<Image
 								src={item.imgURL}
@@ -62,7 +62,7 @@ const MobileNav = () => {
 					width={36}
 					height={36}
 					alt="Menu"
-					className="invert-colors sm:hidden"
+					className="invert-colors mt-[14px] md:hidden"
 				/>
 			</SheetTrigger>
 

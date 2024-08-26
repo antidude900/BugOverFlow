@@ -10,15 +10,19 @@ import GlobalSearchMini from "../search/GlobalSearchMini";
 
 const Navbar = () => {
 	return (
-		<nav className="flex-between background-light900_dark200 fixed z-50 h-[114px] w-full gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
-			<Link href="/" className="flex items-center">
-				<Icon />
-				<p className="h2-bold text-dark100_light900 font-spaceGrotesk max-sm:hidden">
-					Bug <span className="text-primary-200">OverFlow</span>
-				</p>
-			</Link>
+		<nav className="flex-between background-light900_dark200 fixed z-50 h-[75px] w-full gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
+			<div className="flex-between gap-4">
+				<MobileNav />
+				<Link href="/" className="flex items-center">
+					<Icon />
+					<p className="h2-bold text-dark100_light900 mt-[15px] font-spaceGrotesk max-sm:hidden">
+						Bug<span className="text-primary-200">OverFlow</span>
+					</p>
+				</Link>
+			</div>
+
 			<GlobalSearch />
-			<div className="flex-between">
+			<div className="flex-between mt-[14px]">
 				<GlobalSearchMini />
 				<SignedOut>
 					<div className="flex flex-row items-center justify-center">
@@ -73,7 +77,6 @@ const Navbar = () => {
 					</Link>
 				</SignedIn>
 				<Theme />
-				<MobileNav />
 			</div>
 		</nav>
 	);

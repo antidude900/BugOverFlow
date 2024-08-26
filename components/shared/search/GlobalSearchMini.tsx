@@ -38,7 +38,7 @@ const GlobalMiniSearch = () => {
 					<div className="background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-1 rounded-xl">
 						<Input
 							type="text"
-							placeholder="Search Globally"
+							placeholder="Search All"
 							value={input}
 							className="paragraph-regular no-focus placeholder text-dark400_light700 border-none bg-transparent shadow-none outline-none"
 							onChange={(e) => setInput(e.target.value)}
