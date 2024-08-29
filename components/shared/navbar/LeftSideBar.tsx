@@ -21,7 +21,7 @@ const LeftSideBar = () => {
 	if (!isClient)
 		return (
 			<div
-				className={`background-light900_dark200 light-border left-0 top-0 flex h-screen w-[100px] items-center justify-center border-r max-sm:hidden `}
+				className={`background-light900_dark200 light-border sticky left-0 top-0 flex h-screen w-[100px] items-center justify-center border-r max-sm:hidden `}
 			>
 				<div className="size-5 animate-spin rounded-full border-2 border-gray-300 border-t-transparent"></div>
 			</div>
