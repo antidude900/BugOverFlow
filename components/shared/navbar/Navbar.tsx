@@ -19,7 +19,7 @@ const Navbar = () => {
 						Bug<span className="text-primary-200">OverFlow</span>
 					</p>
 				</Link>
-			</div>P
+			</div>
 
 			<GlobalSearch />
 			<div className="flex-between mt-[14px]">

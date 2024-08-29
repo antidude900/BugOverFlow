@@ -10,7 +10,7 @@ const Icon = () => {
 				width={40}
 				height={40}
 				alt="StackOverflow"
-				className="mt-[20px] hidden pb-[25px] dark:flex"
+				className="mt-[20px] hidden size-auto pb-[25px] dark:flex"
 			/>
 
 			<Image
@@ -18,7 +18,7 @@ const Icon = () => {
 				width={40}
 				height={40}
 				alt="StackOverflow"
-				className="mt-[20px] pb-[25px] dark:hidden"
+				className="mt-[20px] size-auto pb-[25px] dark:hidden"
 			/>
 		</>
 	);

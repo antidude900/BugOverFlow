@@ -19,7 +19,7 @@ const questions = [
 		author: {
 			_id: "1",
 			name: "Sujata",
-			picture: "",
+			picture: "/assets/icons/avatar.svg",
 		},
 		upvotes: ["1", "2", "3", "4"],
 		views: 35231838,
