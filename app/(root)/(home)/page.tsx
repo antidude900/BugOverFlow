@@ -6,46 +6,12 @@ import { HomePageFilters } from "@/constants/filters";
 import HomeFilters from "@/components/home/HomeFilters";
 import QuestionCard from "@/components/cards/QuestionCard";
 import NoResult from "@/components/shared/NoResult";
+import { getQuestions } from "@/lib/actions/question.action";
 
-const questions = [
-	{
-		_id: "1",
-		title:
-			"How do ES6 module exports and imports work in JavaScript, and what are the key differences from CommonJS?",
-		tags: [
-			{ _id: "1", name: "javascript" },
-			{ _id: "2", name: "es6" },
-		],
-		author: {
-			_id: "1",
-			name: "Sujata",
-			picture: "/assets/icons/avatar.svg",
-		},
-		upvotes: ["1", "2", "3", "4"],
-		views: 35231838,
-		answers: [],
-		createdAt: new Date("2024-08-13T00:00:00.000Z"),
-	},
-	{
-		_id: "2",
-		title: "How to center a div",
-		tags: [
-			{ _id: "1", name: "css" },
-			{ _id: "2", name: "tailwindcss" },
-		],
-		author: {
-			_id: "1",
-			name: "Sujata",
-			picture: "",
-		},
-		upvotes: ["1", "2", "3", "4"],
-		views: 352,
-		answers: [],
-		createdAt: new Date("2021-09-01T00:00:00.000Z"),
-	},
-];
+const Home = async () => {
+	const result = await getQuestions({});
 
-const Home = () => {
+	console.log(result.questions);
 	return (
 		<>
 			<div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -75,8 +41,8 @@ const Home = () => {
 			<HomeFilters />
 
 			<div className="mt-10 flex w-full flex-col gap-6">
-				{questions.length > 0 ? (
-					questions.map((question) => (
+				{result.questions.length > 0 ? (
+					result.questions.map((question) => (
 						<QuestionCard
 							key={question._id}
 							_id={question._id}
