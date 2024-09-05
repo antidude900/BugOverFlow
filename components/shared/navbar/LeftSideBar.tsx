@@ -8,27 +8,13 @@ import React, { useEffect, useState } from "react";
 
 const LeftSideBar = () => {
 	const pathname = usePathname();
-	const [isExpanded, setIsExpanded] = useState(false);
+	const [isExpanded, 	setIsExpanded] = useState(false);
 	const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 	const [isClient, setIsClient] = useState(false);
-	const [showText, setShowText] = useState(false);
 
 	useEffect(() => {
 		setIsClient(true);
 	}, []);
-
-	// Handle the timing for showing text
-	useEffect(() => {
-		let timer: any;
-
-		if (isExpanded) {
-			timer = setTimeout(() => setShowText(true), 175); // Faster text appearance
-		} else {
-			setShowText(false);
-		}
-
-		return () => clearTimeout(timer);
-	}, [isExpanded]);
 
 	if (!isClient)
 		return (
@@ -43,11 +29,11 @@ const LeftSideBar = () => {
 		<section
 			onMouseEnter={() => setIsExpanded(true)}
 			onMouseLeave={() => setIsExpanded(false)}
-			className={`background-light900_dark200 light-border custom-scrollbar sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-4 pt-28 shadow-light-300 transition-all duration-300 ease-in-out dark:shadow-none max-md:hidden ${
-				isExpanded ? "lg:w-[266px]" : "lg:w-[90px]" // Adjust width for expanded and collapsed states
+			className={`background-light900_dark200 light-border custom-scrollbar sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r pt-28 shadow-light-300 transition-all duration-100 ease-in-out dark:shadow-none max-md:hidden ${
+				isExpanded ? "w-[266px]" : "w-[90px]"
 			} z-40`}
 		>
-			<div className="flex flex-1 flex-col gap-2">
+			<div className="flex flex-1 flex-col gap-1.5">
 				{sidebarLinks.map((item) => {
 					const isActive =
 						(pathname.includes(item.route) && item.route.length > 1) ||
@@ -60,32 +46,29 @@ const LeftSideBar = () => {
 							href={item.route}
 							className={`${
 								isActive
-									? "primary-gradient rounded-lg text-light-900"
+									? "primary-gradient text-light-900"
 									: "text-dark300_light900"
 							} ${
-								isLinkHovered && !isActive && "active-theme"
-							} relative flex h-[60px] w-auto items-center justify-start gap-2 p-2`} // Adjust padding and height
+								isLinkHovered && !isActive && "bg-slate-100 dark:bg-dark-400"
+							} relative flex h-[60px] w-full	 items-center ${isExpanded ? "justify-start" : "justify-center"} justify-start gap-4  rounded-lg p-4`} // Make width full and height larger
 							onMouseEnter={() => setHoveredLink(item.route)}
 							onMouseLeave={() => setHoveredLink(null)}
 						>
 							<Image
 								src={item.imgURL}
 								alt={item.label}
-								width={24} // Adjust icon size if needed
-								height={24}
+								width={20}
+								height={20}
 								className={`${isActive ? "" : "invert-colors"}`}
 							/>
-							{showText && (
-								<p
-									className={`${
-										isActive ? "base-bold" : "base-medium"
-									} transition-opacity duration-300 ease-in-out ${
-										!isExpanded && "opacity-0"
-									} absolute left-[50px]`} // Move text closer
-								>
-									{item.label}
-								</p>
-							)}
+
+							<p
+								className={`${
+									isActive ? "base-bold" : "base-medium"
+								} line-clamp-1 ${!isExpanded && "hidden"}`}
+							>
+								{item.label}
+							</p>
 						</Link>
 					);
 				})}
