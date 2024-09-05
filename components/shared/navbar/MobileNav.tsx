@@ -75,11 +75,11 @@ const MobileNav = () => {
 						src="/assets/images/site-logo.svg"
 						width={23}
 						height={23}
-						alt="DevFlow"
+						alt="BugOverFlow"
 					/>
 
 					<p className="h2-bold text-dark100_light900 font-spaceGrotesk">
-						Stack <span className="text-primary-500">Overflow</span>
+						Bug <span className="text-primary-500">Overflow</span>
 					</p>
 				</Link>
 				<div className="no-scrollbar flex grow flex-col justify-between overflow-y-auto">
