@@ -8,22 +8,13 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
+import { useState } from "react";
 
 const GlobalMiniSearch = () => {
 	const [input, setInput] = useState("");
-	const isLargeScreen = useMediaQuery({ query: "(min-width: 1130px)" });
-	const [isClient, setIsClient] = useState(false);
-
-	// Set isClient to true once the component has mounted
-	useEffect(() => {
-		setIsClient(true);
-	}, []);
-	if (!isClient) return null;
 
 	return (
-		<div className={`${isLargeScreen ? "hidden" : ""} px-[25px] pt-1.5`}>
+		<div className="px-[25px] pt-1.5 lg:hidden">
 			<Popover>
 				<PopoverTrigger>
 					<Image

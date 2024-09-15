@@ -10,8 +10,8 @@ import GlobalSearchMini from "../search/GlobalSearchMini";
 
 const Navbar = () => {
 	return (
-		<nav className="flex-between background-light900_dark200 fixed z-50 h-[75px] w-full gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
-			<div className="flex-between gap-4">
+		<nav className="background-light900_dark200 fixed z-50 flex h-[75px] w-full items-center justify-between gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
+			<div className="flex items-center gap-4">
 				<MobileNav />
 				<Link href="/" className="flex items-center">
 					<Icon />
@@ -21,11 +21,16 @@ const Navbar = () => {
 				</Link>
 			</div>
 
-			<GlobalSearch />
-			<div className="flex-between mt-[14px]">
+			{/* Centered GlobalSearch */}
+			<div className="flex grow justify-center">
+				<GlobalSearch />
+			</div>
+
+			<div className="mt-[14px] flex shrink-0 items-center gap-4">
 				<GlobalSearchMini />
+
 				<SignedOut>
-					<div className="flex flex-row items-center justify-center">
+					<div className="flex flex-row items-center justify-center gap-2">
 						<Link href="/sign-in">
 							<Button className="small-medium rounded-lg">
 								<Image
@@ -76,6 +81,7 @@ const Navbar = () => {
 						/>
 					</Link>
 				</SignedIn>
+
 				<Theme />
 			</div>
 		</nav>
