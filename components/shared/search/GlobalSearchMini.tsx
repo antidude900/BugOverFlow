@@ -18,7 +18,7 @@ const GlobalMiniSearch = () => {
 			<Popover>
 				<PopoverTrigger>
 					<Image
-						src="assets/icons/search.svg"
+						src="/assets/icons/search.svg"
 						alt="search"
 						width={24}
 						height={24}
