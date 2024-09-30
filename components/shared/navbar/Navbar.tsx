@@ -7,8 +7,11 @@ import Icon from "../Icon";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import GlobalSearchMini from "../search/GlobalSearchMini";
+import { auth } from "@clerk/nextjs/server";
 
 const Navbar = () => {
+	const {userId} = auth()
+	
 	return (
 		<nav className="background-light900_dark200 fixed z-50 flex h-[75px] w-full items-center justify-between gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
 			<div className="flex items-center gap-4">
@@ -62,6 +65,7 @@ const Navbar = () => {
 				</SignedOut>
 
 				<SignedIn>
+					
 					<Link href={"/badge"} className="mx-[16px]">
 						<Image
 							src={"/assets/icons/badge.svg"}
@@ -71,7 +75,7 @@ const Navbar = () => {
 							className="invert-colors"
 						/>
 					</Link>
-					<Link href={"/profile"} className="mx-[16px]">
+					<Link href={`/profile/${userId}`} className="mx-[16px]">
 						<Image
 							src={"/assets/icons/user.svg"}
 							alt={"Profile"}
