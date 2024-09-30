@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button";
 import { getUserInfo } from "@/lib/actions/user.action";
 import { URLProps } from "@/types";
-import { SignedIn } from "@clerk/nextjs";
+
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
-import Link from "next/link";
+
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getJoinedDate } from "@/lib/utils";
@@ -17,9 +16,8 @@ const page = async ({ params, searchParams }: URLProps) => {
 	const userInfo = await getUserInfo({ userId: params.id });
 	const { userId: clerkId } = auth();
 
-	if (!clerkId)
-		return null
-	
+	if (!clerkId) return null;
+
 	return (
 		<>
 			<div className="flex flex-col-reverse items-start justify-between sm:flex-row">
